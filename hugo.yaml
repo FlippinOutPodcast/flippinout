@@ -1,4 +1,4 @@
-baseURL: https://flippinoutpodcast.com/
+baseURL: https://www.flippinoutpodcast.com/
 languageCode: en-us
 params:
   contact:
@@ -26,26 +26,26 @@ params:
     tagline: Let's play some Flippin' pinball!
     download_url: https://media.flippinoutpodcast.com/episodes/
     cdn_url: https://media.flippinoutpodcast.com/
-    # itunes_url: 
-    # itunes_id: 
+    itunes_url: 
+    itunes_id: 
 
-outputFormats:
-  aacfeed:
-    MediaType: "application/rss+xml"
-    BaseName: "index"
-    path: "/feed/aac"
-    IsHTML: false
-    IsPlainText: true
-    noUgly: true
-    Rel: "alternate"
-  mp3feed:
-    MediaType: "application/rss+xml"
-    BaseName: "index"
-    path: "/feed/mp3"
-    IsHTML: false
-    IsPlainText: true
-    noUgly: true
-    Rel: "alternate"
+# outputFormats:
+#   aacfeed:
+#     MediaType: "application/rss+xml"
+#     BaseName: "index"
+#     path: "/feed/aac"
+#     IsHTML: false
+#     IsPlainText: true
+#     noUgly: true
+#     Rel: "alternate"
+#   mp3feed:
+#     MediaType: "application/rss+xml"
+#     BaseName: "index"
+#     path: "/feed/mp3"
+#     IsHTML: false
+#     IsPlainText: true
+#     noUgly: true
+#     Rel: "alternate"
 
 outputs:
   home:
