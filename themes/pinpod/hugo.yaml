@@ -1,3 +1,6 @@
+content:
+  sections:
+    - episodes
 outputFormats:
   aacfeed:
     MediaType: "application/rss+xml"
