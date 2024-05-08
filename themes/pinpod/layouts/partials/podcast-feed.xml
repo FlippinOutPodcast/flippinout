@@ -7,7 +7,8 @@
      xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
      xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
      xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
-     xmlns:media="http://search.yahoo.com/mrss/">
+     xmlns:media="http://search.yahoo.com/mrss/"
+     xmlns:podcast="https://podcastindex.org/namespace/1.0">
     <channel>
         {{ $assetFormat := .Scratch.Get "asset-format" }}
         <title>{{ .Site.Title}}</title>
@@ -37,7 +38,7 @@
             <itunes:category text="Courses"/>
         </itunes:category>
         <itunes:category text="History"/>
-
+        <itunes:explicit>false</itunes:explicit>
         <itunes:author>{{.Site.Params.author.name}}</itunes:author>
         <itunes:owner>
             <itunes:name>{{.Site.Params.author.name}}</itunes:name>
@@ -45,7 +46,7 @@
         </itunes:owner>
         <itunes:block>no</itunes:block>
         <itunes:explicit>no</itunes:explicit>
-        <itunes:image href="{{ .Site.Params.podcast.cdn_url }}images/logo_feed.png"/>
+        <itunes:image href="{{ .Site.Params.podcast.cdn_url }}images/flippin-out-cover-2048.png"/>
         {{ range (where .Site.RegularPages "Params.layout" "episode")}}
         {{ .Scratch.Set "asset" .Params.aac }}
         {{if eq $assetFormat "mp3"}}
@@ -77,7 +78,7 @@
                 {{ $scratch.Set "image"  "images/thumbnail.svg" }}
             {{end}}
             {{ else }}
-                {{ $scratch.Set "image" (printf "%simages/logo_feed.png" .Site.Params.podcast.cdn_url) }}
+                {{ $scratch.Set "image" (printf "%simages/flippin-out-cover-2048.png" .Site.Params.podcast.cdn_url) }}
             {{ end }}
             {{ $image := $scratch.Get "image" }}
             <itunes:image

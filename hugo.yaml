@@ -5,6 +5,8 @@ params:
     email: hello@flippinoutpodcast.com
   subtitle: "???"
 title: Flippin' Out Podcast
+DefaultContentLanguage: en
+languageCode: "en-us"
 module:
   imports:
   - path: github.com/theNewDynamic/gohugo-theme-ananke
@@ -13,11 +15,14 @@ theme:
   - github.com/theNewDynamic/gohugo-theme-ananke
   - pinpod
 
+languages:
+  en:
+    contentDir: "content/"
+
 params:
   author:
     name: Drew and Marc
     email: hello@flippinoutpodcast.com
-  # twitter: "" 
 
   mainSections: ["blog", "episodes"] # see https://gohugo.io/functions/where/#mainsections
 
