@@ -28,16 +28,9 @@
         <itunes:subtitle>{{.Site.Params.podcast.tagline}}</itunes:subtitle>
         <itunes:summary>{{.Site.Params.podcast.description}}</itunes:summary>
         <itunes:keywords></itunes:keywords>
-        <itunes:category text="Arts">
-            <itunes:category text="Food"/>
+        <itunes:category text="Leisure">
+            <itunes:category text="Games"/>
         </itunes:category>
-        <itunes:category text="Health &amp; Fitness">
-            <itunes:category text="Nutrition"/>
-        </itunes:category>
-        <itunes:category text="Education">
-            <itunes:category text="Courses"/>
-        </itunes:category>
-        <itunes:category text="History"/>
         <itunes:explicit>false</itunes:explicit>
         <itunes:author>{{.Site.Params.author.name}}</itunes:author>
         <itunes:owner>
@@ -45,8 +38,7 @@
             <itunes:email>{{.Site.Params.author.email}}</itunes:email>
         </itunes:owner>
         <itunes:block>no</itunes:block>
-        <itunes:explicit>no</itunes:explicit>
-        <itunes:image href="{{ .Site.Params.podcast.cdn_url }}images/flippin-out-cover-2048.png"/>
+        <itunes:image href="{{ .Site.Params.podcast.cdn_url }}images/flippin-out-cover-3k.png"/>
         {{ range (where .Site.RegularPages "Params.layout" "episode")}}
         {{ .Scratch.Set "asset" .Params.aac }}
         {{if eq $assetFormat "mp3"}}
@@ -78,7 +70,7 @@
                 {{ $scratch.Set "image"  "images/thumbnail.svg" }}
             {{end}}
             {{ else }}
-                {{ $scratch.Set "image" (printf "%simages/flippin-out-cover-2048.png" .Site.Params.podcast.cdn_url) }}
+                {{ $scratch.Set "image" (printf "%simages/flippin-out-cover-3k.png" .Site.Params.podcast.cdn_url) }}
             {{ end }}
             {{ $image := $scratch.Get "image" }}
             <itunes:image
