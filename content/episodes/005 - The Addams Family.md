@@ -1,5 +1,5 @@
 ---
-author: Drew and Marc
+author: Marc and Drew
 title: The Addams Family
 layout: episode
 eptype: full
