@@ -5,7 +5,7 @@ layout: episode
 eptype: full
 number: 5 
 duration: "0:34:48"
-date: 2024-06-30 12:00:00 -07:00 
+date: 2024-06-30 10:00:00 -06:00 
 short_description: |
   Marc and Drew get kooky and ooky as they discuss the world's most wholesome macabre family and pinball's most prolific machine, The Addams Family!
 mp3:
