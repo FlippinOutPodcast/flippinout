@@ -1,0 +1,169 @@
+{{ define "header" }}
+{{/* We can override any block in the baseof file be defining it in the template */}}
+{{ partial "page-header.html" . }}
+{{ end }}
+
+{{ define "main" }}
+{{ $section := .Site.GetPage "section" .Section }}
+<article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+        <aside class="instapaper_ignoref b helvetica tracked ttu">
+            {{/*
+            CurrentSection allows us to use the section title instead of inferring from the folder.
+            https://gohugo.io/variables/page/#section-variables-and-methods
+            */}}
+            {{ .CurrentSection.Title }}
+        </aside>
+        {{ partial "social-share.html" . }}
+        <h1 class="f1 athelas mt3 mb1">
+            {{- .Title -}}
+        </h1>
+        {{ with .Params.author | default .Site.Params.author }}
+        <p class="tracked">
+            {{ $.Render "by" }} <strong>
+                {{- if reflect.IsSlice . -}}
+                {{ delimit . ", " | markdownify }}
+                {{- else -}}
+                {{ . | markdownify }}
+                {{- end -}}
+            </strong>
+        </p>
+        {{ end }}
+        {{/* Hugo uses Go's date formatting is set by example. Here are two formats */}}
+        {{ if not .Date.IsZero }}
+        <time class="f6 mv4 dib tracked" {{ printf `datetime="%s" ` (.Date.Format "2006-01-02T15:04:05Z07:00" ) |
+            safeHTMLAttr }}>
+            {{- .Date | time.Format (default "January 2, 2006" .Site.Params.date_format) -}}
+        </time>
+        {{end}}
+
+        <!-- Image -->
+        <div class="post_thumb mr-2 mb-2">
+            {{ if .Params.image }}
+            {{ $originalImg := resources.Get .Params.image.url }}
+            {{ if $originalImg }}
+            {{ $thumbnailImg := $originalImg.Fit "800x600" }}
+            <figure>
+                <img class="post_thumbnail" alt="{{ .Params.image.alt | default .Title | markdownify | safeHTML }}"
+                    src="{{$thumbnailImg.RelPermalink}}" />
+                <figcaption class="figure-caption">{{ .Params.image.alt | default .Title | markdownify | safeHTML }}
+                </figcaption>
+            </figure>
+            {{else}}
+            <a href="{{ .Site.Params.podcast.cdn_url }}images/flippin-out-cover-min.png"><img
+                    src="{{ .Site.Params.podcast.cdn_url }}images/flippin-out-cover-min.png" alt="{{.Title}}"
+                    width="320" class="post_thumbnail" /></a>
+            {{end}}
+            {{else}}
+            <a href="{{ .Site.Params.podcast.cdn_url }}images/logo_wide.png"><img
+                    src="{{ .Site.Params.podcast.cdn_url }}images/logo_wide.png" alt="{{.Title}}" width="320"
+                    class="post_thumbnail" /></a>
+            {{end}}
+        </div>
+
+        {{/*
+        Show "reading time" and "word count" but only if one of the following are true:
+        1) A global config `params` value is set `show_reading_time = true`
+        2) A section front matter value is set `show_reading_time = true`
+        3) A page front matter value is set `show_reading_time = true`
+        */}}
+        {{ if (or (eq (.Param "show_reading_time") true) (eq $section.Params.show_reading_time true) )}}
+        <span class="f6 mv4 dib tracked"> - {{ i18n "readingTime" .ReadingTime }} </span>
+        <span class="f6 mv4 dib tracked"> - {{ i18n "wordCount" .WordCount }} </span>
+        {{ end }}
+    </header>
+    <div class="nested-copy-line-height lh-copy {{ $.Param " post_content_classes" | default "serif" }} f4 nested-links
+        {{ $.Param "text_color" | default "mid-gray" }} {{ cond (eq $.Site.Language.LanguageDirection "rtl"
+        ) "pl4-l" "pr4-l" }} w-two-thirds-l">
+        {{- .Content -}}
+        <!-- Player -->
+        <div id="player" class="mb-2 mr-2"></div>
+        <script src="https://cdn.podlove.org/web-player/5.x/embed.js"></script>
+        <script>
+            (function () {
+                var episode = {
+                    show: {
+                        title: "{{ .Site.Title}}",
+                        subtitle: "{{.Site.Params.podcast.tagline}}",
+                        summary: "{{.Site.Params.podcast.description}}",
+                        poster: "{{ .Site.Params.podcast.cdn_url }}images/flippin-out-cover-min.png",
+                        link: ""
+                    },
+                    /**
+                    * Episode related Information
+                    */
+                    title: "{{ .Params.number }}. {{ .Params.title }}",
+                    subtitle: "{{ .Params.short_description | plainify }}",
+                    summary: "{{ .Content | plainify }}",
+                    // ISO 8601 DateTime format, this is capable of adding a time offset, see https://en.wikipedia.org/wiki/ISO_8601
+                    publicationDate: '{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:00 -0700" }}',
+                    // ISO 8601 Duration format ([hh]:[mm]:[ss].[sss]), capable of add ing milliseconds, see https://en.wikipedia.org/wiki/ISO_8601
+                    duration: "{{ .Params.duration }}",
+                    link: "{{.Permalink}}",
+
+                    /**
+                    * Audio Assets
+                    * - media Assets played by the audio player
+                    * - format support depends on the used browser (https://en.wikipedia.org/wiki/HTML5_audio#Supported_audio_coding_formats)
+                    * - also supports HLS streams
+                    *
+                    * Asset
+                    * - url: absolute path to media asset
+                    * - size: file size in  byte
+                    * - (title): title to be displayed in download tab
+                    * - mimeType: media asset mimeType
+                    */
+                    audio: [
+                        {
+                            url: "{{.Site.Params.podcast.download_url}}{{ .Params.aac.asset_link | safeHTML }}",
+                            size: "{{ .Params.aac.length }}",
+                            title: "MPEG-4 AAC Audio (m4a)",
+                            mimeType: "audio/mp4"
+                        },
+                        {
+                            url: "{{.Site.Params.podcast.download_url}}{{ .Params.mp3.asset_link | safeHTML }}",
+                            size: "{{ .Params.mp3.length }}",
+                            title: "MP3 Audio (mp3)",
+                            mimeType: "audio/mpeg"
+                        }
+                    ],
+                };
+
+                var config = {
+                    version: 5,
+                    share: {
+                        /**
+                        * Share Channels:
+                        * - list of available channels in share tab
+                        */
+                        channels: [
+                            "facebook",
+                            "twitter",
+                            "mail",
+                            "link"
+                        ],
+                        // share outlet, if not provided embed snippet is not available
+                        // outlet: "/share.html",
+                        sharePlaytime: true
+                    }
+                };
+                podlovePlayer('#player', episode);
+            })();
+        </script>
+        {{- partial "tags.html" . -}}
+        <div class="mt6 instapaper_ignoref">
+            {{ if .Site.Config.Services.Disqus.Shortname }}
+            {{ template "_internal/disqus.html" . }}
+            {{ end }}
+            {{ if .Site.Params.commentoEnable }}
+            {{- partial "commento.html" . -}}
+            {{ end }}
+        </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+        {{- partial "menu-contextual.html" . -}}
+    </aside>
+
+</article>
+{{ end }}

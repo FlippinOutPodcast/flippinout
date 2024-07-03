@@ -10,10 +10,7 @@ languageCode: "en-us"
 module:
   imports:
   - path: github.com/theNewDynamic/gohugo-theme-ananke
-  - path: github.com/FlippinOutPodcast/pinpod
-theme:
-  - github.com/theNewDynamic/gohugo-theme-ananke
-  - pinpod
+  - path: github.com/FlippinOutPodcast/pinpod # This needs to be its own module some day, but for now lives in themes/
 
 languages:
   en:
@@ -23,6 +20,7 @@ params:
   author:
     name: Drew and Marc
     email: hello@flippinoutpodcast.com
+  custom_css: ["flippin.css"]
 
   mainSections: ["blog", "episodes"] # see https://gohugo.io/functions/where/#mainsections
 
@@ -54,6 +52,6 @@ outputFormats:
 
 outputs:
   home:
-    # - HTML
+    - HTML
     - aacfeed
     - mp3feed

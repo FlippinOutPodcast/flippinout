@@ -17,8 +17,8 @@ aac:
 url: /003-white-water
 tags: []
 image: 
-  url: /images/flippin-out-cover-min.png
-  alt: "Flippin' Out"
+  url: /images/ww.jpg
+  alt: "The truth is out there"
 draft: false
 ---
   Marc and Drew play White Water pinball, plunge into a few whirlpools and just maybe uncover the truth about Bigfoot.

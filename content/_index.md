@@ -4,6 +4,10 @@ title: "Flippin' Out Podcast"
 description: "Spreading the joy of pinball"
 theme_version: '2.8.2'
 cascade:
-  featured_image: '/images/gohugo-default-sample-hero-image.jpg'
+  featured_image: '/images/flippin-out-logo.png'
 ---
-Flippin' Out Podcast.  Perhaps you are interested in some [episodes](/episodes/).
+# Flippin' Out Podcast.  
+
+Amateur pinball enthusiasts Drew and Marc explore the world of pinball, one machine at a time.
+
+Perhaps you are interested in some [episodes](/episodes/).

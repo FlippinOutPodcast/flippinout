@@ -17,8 +17,8 @@ aac:
 url: /004-black-knight-sword-of-rage
 tags: []
 image: 
-  url: /images/flippin-out-cover-min.png
-  alt: "Flippin' Out"
+  url: /images/magna.jpg
+  alt: "Magna Save!"
 draft: false
 ---
 Drew and Marc slay monsters, jam out to sick guitar riffs, and get utterly humiliated by Steve Ritchie's Black Knight.

@@ -17,8 +17,8 @@ aac:
 url: /002-rush
 tags: []
 image: 
-  url: /images/flippin-out-cover-min.png
-  alt: "Flippin' Out"
+  url: /images/rush.png
+  alt: "Rush"
 draft: false
 ---
   Marc and Drew explore the Rush pinball machine, discuss the merits of other Canadian musical acts, and lay down some hot takes on Taylor Swift's catalog.

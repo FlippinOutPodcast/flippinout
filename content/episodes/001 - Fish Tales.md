@@ -17,8 +17,8 @@ aac:
 url: /001-fish-tales
 tags: []
 image: 
-  url: /images/flippin-out-cover-min.png
-  alt: "Flippin' Out"
+  url: /images/fish.jpg
+  alt: "It was THIS big"
 draft: false
 ---
   Drew and Marc play Fish Tales and see who can reel in the higher score (or at least lie about it)

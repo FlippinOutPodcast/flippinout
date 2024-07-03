@@ -17,8 +17,8 @@ aac:
 url: /005-addams-family
 tags: []
 image: 
-  url: /images/flippin-out-cover-min.png
-  alt: "Flippin' Out"
+  url: /images/af.jpg
+  alt: "All together ooky"
 draft: false
 ---
 Marc and Drew get kooky and ooky as they discuss the world's most wholesome macabre family and pinball's most prolific machine, The Addams Family!
