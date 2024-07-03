@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
     window.podcastData = {
         "title": "{{$.Site.Params.podcast.tagline}}",
         "subtitle": "{{$.Site.Params.podcast.tagline}}",
@@ -26,4 +26,19 @@
     data-size="medium" data-json-data="podcastData" data-color="#ff3c5c" data-format="square" data-style="frameless"
     data-buttonid="podsub1" data-hide="true"></script>
 <noscript><a href="{{$.Site.BaseURL}}feed/aac/">Subscribe to feed</a></noscript>
-<div class="podlove-subscribe-button-podsub1 subscribe"></div>
+<div class="podlove-subscribe-button-podsub1 subscribe"></div> -->
+
+<script>window.podcastData = {
+        "title": "{{$.Site.Title}}",
+        "subtitle": "{{$.Site.Params.podcast.tagline}}",
+        "description": "{{$.Site.Params.podcast.description}}",
+        "cover": "{{$.Site.Params.podcast.cover_image}}",
+        "feeds": [
+            { "type": "audio", "format": "aac", "url": "{{$.Site.BaseURL}}feed/aac/index.xml", "directory-url-itunes": "{{$.Site.Params.podcast.itunes_url}}" },
+            { "type": "audio", "format": "mp3", "url": "{{$.Site.BaseURL}}feed/mp3/index.xml" }
+        ]
+    }</script>
+<script class="podlove-subscribe-button" src="https://cdn.podlove.org/subscribe-button/javascripts/app.js"
+    data-language="en" data-size="big" data-json-data="podcastData" data-color="#a0541c" data-format="cover"
+    data-style="filled"></script><noscript><a href="{{$.Site.BaseURL}}feed/aac/index.xml">Subscribe to
+        feed</a></noscript>

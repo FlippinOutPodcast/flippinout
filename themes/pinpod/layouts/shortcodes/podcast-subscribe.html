@@ -1,0 +1,14 @@
+<script>window.podcastData = {
+        "title": "{{$.Site.Title}}",
+        "subtitle": "{{$.Site.Params.podcast.tagline}}",
+        "description": "{{$.Site.Params.podcast.description}}",
+        "cover": "{{$.Site.Params.podcast.cover_image}}",
+        "feeds": [
+            { "type": "audio", "format": "aac", "url": "{{$.Site.BaseURL}}feed/aac/index.xml", "directory-url-itunes": "{{$.Site.Params.podcast.itunes_url}}" },
+            { "type": "audio", "format": "mp3", "url": "{{$.Site.BaseURL}}feed/mp3/index.xml" }
+        ]
+    }</script>
+<script class="podlove-subscribe-button" src="https://cdn.podlove.org/subscribe-button/javascripts/app.js"
+    data-language="en" data-size="big" data-json-data="podcastData" data-color="#a0541c" data-format="cover"
+    data-style="filled"></script><noscript><a href="{{$.Site.BaseURL}}feed/aac/index.xml">Subscribe to
+        feed</a></noscript>

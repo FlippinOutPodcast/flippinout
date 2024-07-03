@@ -10,4 +10,6 @@ cascade:
 
 Amateur pinball enthusiasts Drew and Marc explore the world of pinball, one machine at a time.
 
+{{< podcast-subscribe >}}
+
 Perhaps you are interested in some [episodes](/episodes/).

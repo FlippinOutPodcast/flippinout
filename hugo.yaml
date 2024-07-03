@@ -29,8 +29,9 @@ params:
     tagline: Let's play some Flippin' pinball!
     download_url: https://media.flippinoutpodcast.com/episodes/
     cdn_url: https://media.flippinoutpodcast.com/
-    itunes_url: 
+    itunes_url: https://podcasts.apple.com/us/podcast/flippin-out-podcast/id1745406114 
     itunes_id: 
+    cover_image: https://www.flippinoutpodcast.com/images/flippin-out-cover-min.png
 
 outputFormats:
   aacfeed:
