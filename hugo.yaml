@@ -56,3 +56,10 @@ outputs:
     - HTML
     - aacfeed
     - mp3feed
+
+deployment:
+  targets:
+    - name: gcp
+      URL: gs://flippin-out-html/
+    - name: r2
+      URL: s3://podcast-html?endpoint=a05b845319257ed29946e5409ba8aafc.r2.cloudflarestorage.com&disableSSL=true&s3ForcePathStyle=true&region=auto
