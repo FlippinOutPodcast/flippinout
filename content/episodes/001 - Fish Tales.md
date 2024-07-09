@@ -18,7 +18,7 @@ url: /001-fish-tales
 tags: []
 image: 
   url: /images/fish.jpg
-  alt: "It was THIS big!"
+  alt: "It was THIS big!!"
 draft: false
 ---
   Drew and Marc play Fish Tales and see who can reel in the higher score (or at least lie about it)
