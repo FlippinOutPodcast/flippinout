@@ -6,12 +6,12 @@ steps:
     args:
       - hugo
       - deploy
-      - target=gcp
+      - --target=gcp
   - name: $_BUILDER_IMAGE
     args:
       - hugo
       - deploy
-      - target=r2
+      - --target=r2
     secretEnv: ['AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY', 'AWS_SESSION_TOKEN']
 options:
   logging: CLOUD_LOGGING_ONLY
