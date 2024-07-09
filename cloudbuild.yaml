@@ -12,7 +12,7 @@ steps:
       - hugo
       - deploy
       - --target=r2
-    secretEnv: ['AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY', 'AWS_SESSION_TOKEN']
+    secretEnv: ['AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY']
 options:
   logging: CLOUD_LOGGING_ONLY
 substitutions:
@@ -23,5 +23,3 @@ availableSecrets:
     env: 'AWS_ACCESS_KEY_ID'
   - versionName: projects/$PROJECT_ID/secrets/FO_R2_AWS_SECRET_ACCESS_KEY/versions/1
     env: 'AWS_SECRET_ACCESS_KEY'
-  - versionName: projects/$PROJECT_ID/secrets/FO_R2_AWS_SESSION_TOKEN/versions/1
-    env: 'AWS_SESSION_TOKEN'
