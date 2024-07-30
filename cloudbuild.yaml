@@ -1,5 +1,7 @@
 steps:
   - name: $_BUILDER_IMAGE
+    env:
+      - 'HUGO_ENV=production'
     args:
       - hugo
   - name: $_BUILDER_IMAGE
