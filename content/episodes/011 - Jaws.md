@@ -5,7 +5,7 @@ layout: episode
 eptype: full
 number: 11
 duration: "0:43:49"
-date: 2024-09-15 17:00:00 -06:00 
+date: 2024-09-22 17:00:00 -06:00 
 short_description: |
   Marc and Drew make their own Shark Week and discuss the history of shark attacks. They also chum the waters and try to reel in Jaws -- but can they keep the beaches safe?
 mp3:
