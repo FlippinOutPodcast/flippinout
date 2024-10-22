@@ -21,4 +21,4 @@ image:
   alt: "Man's best friend"
 draft: false
 ---
-Drew and Marc deconstruct the John Wick pinball machine from the perspective of stereotypical millenial dog owners.  In the head to head competition, who will be the goodest boy?
+Drew and Marc deconstruct the John Wick pinball machine from the perspective of stereotypical millenial dog owners.  In the head to head competition, who will be the goodest boy??
