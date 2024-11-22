@@ -18,7 +18,7 @@ steps:
 options:
   logging: CLOUD_LOGGING_ONLY
 substitutions:
-  _BUILDER_IMAGE: 'hugomods/hugo:ci-non-root'
+  _BUILDER_IMAGE: 'hugomods/hugo:ci'
 availableSecrets:
   secretManager:
   - versionName: projects/$PROJECT_ID/secrets/FO_R2_AWS_ACCESS_KEY_ID/versions/1
